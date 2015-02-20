@@ -9,26 +9,28 @@ public class PrintDiamond {
         System.out.println("Enter a number");
         int number = input.nextInt();
         for (int i = 0; i < number; i++) {
-            for (int space = 0; space < number - i - 1; space++) {
-                System.out.print(" ");
-            }
-            for (int j = 0; j < i * 2 + 1; j++) {
-                System.out.print("*");
-            }
+            printSpace(number-i-1);
+            printStar(0,i*2+1);
             System.out.println();
         }
 
         for (int i = number - 1; i >= 1; i--) {
-            for (int space = 0; space < (number - i); space++) {
-                System.out.print(" ");
-            }
-            for (int j = 1; j <= i; j++) {
-                System.out.print("*");
-            }
-            for (int k = 1; k < i; k++) {
-                System.out.print("*");
-            }
+            printSpace(number-i);
+            printStar(1,i+1);
+            printStar(1,i);
             System.out.println();
+        }
+    }
+
+    private static void printStar(int start,int end) {
+        for (int j = start; j < end; j++) {
+            System.out.print("*");
+        }
+    }
+
+    private static void printSpace(int number) {
+        for (int space = 0; space < number; space++) {
+            System.out.print(" ");
         }
     }
 }
